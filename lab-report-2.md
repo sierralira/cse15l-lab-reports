@@ -46,5 +46,3 @@ class StringServer {
 
 In order to build and run this server on my local computer, I used the terminal commands `javac Server.java StringServer.java` and `java StringServer 4000`. The message `Server Started! Visit http://localhost:6000 to visit.` prompted me to the link [http://localhost:4000](http://localhost:4000). where I was able to use the `add-message` request. 
 
->![Image](lab-report-2-image-1.png)
->![Image](lab-report-2-image-2.png)
