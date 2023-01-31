@@ -70,7 +70,66 @@ Then, the first element of the array `parameters` is checked for its equlity to 
 Finally, the value of string is returned, dispalying the value of string on the page. Hence, the value of the feilds, 'string', of the class changed.
 
 ### Part 2: Bugs
-The buggy program I will be dicussing is the `reversed` method in ArrayExample.java provided in the lab3 rep
+The buggy program I will be dicussing is the `reversed` method in ArrayExample.java provided in the lab3 repository at [https://github.com/ucsd-cse15l-w23/lab3](https://github.com/ucsd-cse15l-w23/lab3). The intention of this method was to return a new array the input array's elements in reverse order. 
+
+The following JUnit test included the failure-inducing input, `{1, 2, 3}`, for the buggy program:
+```
+import static org.junit.Assert.*;
+import org.junit.*;
+
+public class ArrayTests {
+    
+    @Test
+    public void myTestReversedFail() {
+        int[] failingInput = {1, 2, 3};
+        assertArrayEquals(new int[]{3, 2, 1}, ArrayExample.reversed(failingInput));
+    }
+}
+```
+
+The following Junit test does not induce a failure, despite the buggy program: 
+```
+import static org.junit.Assert.*;
+import org.junit.*;
+
+public class ArrayTests {
+    
+    @Test
+    public void myTestReversedPass() {
+        int[] passingInput = {0, 0, 0};
+        assertArrayEquals(new int[]{0, 0, 0}, ArrayExample.reversed(passingInput));
+    }
+}
+```
+
+The symptom of the buggy program, is that the returned array has values that are all equal to zero, ass seen in the following image: 
+>![Image](lab-report-2-image-3.png)
+
+Previous to debugging, the `reversed` method contained the following code: 
+```
+static int[] reversed(int[] arr) {
+   int[] newArray = new int[arr.length];
+   for(int i = 0; i < arr.length; i += 1) {
+     arr[i] = newArray[arr.length - i - 1];
+   }
+   return arr;
+}
+```
+
+Following debugging, the `reversed method contained the following code:
+```
+static int[] reversed(int[] arr) {
+   int[] newArray = new int[arr.length];
+   for(int i = 0; i < arr.length; i += 1) {
+     newArray[i] = arr[arr.length - i - 1];
+   }
+   return newArray;
+}
+```
+
+In order to degub the `reversed` method, I first changed the return statment from `return arr;` to `return newArray;`, this fixed part of the issue by returning the new array rather than the input array. Also, `arr[i] = newArray[arr.length - i - 1];` was changed to `newArray[i] = arr[arr.length - i - 1];` in order to set the element of the new array equal to the reversed elements of the input array rather than, as previous to the change, the elements of the input array being set to the elements of the new array, which were all zero.
+
+
 
 ### Part 3: Something I learned
-During lab 2, I learned that it is possible to affect what other users see on a server page when connected to the same server and on the same port. For example, my lab partner worked on the ieng6computer `ieng2-203` and on port `7063` and when I visited [http://ieng6-203.ucsd.edu:7063](http://ieng6-203.ucsd.edu:7063) I was able to see the changes he had made to the dispalyed int as well as the string that displayed on the page, which included his name. This new knowledge helped me to understand the possible uses of we servers and the ability for collaboration that they allow. 
+During lab 2, I learned that it is possible to affect what other users see on a server page when connected to the same server and on the same port. For example, my lab partner worked on the ieng6computer `ieng2-203` and on port `7063` and when I visited [http://ieng6-203.ucsd.edu:7063](http://ieng6-203.ucsd.edu:7063) I was able to see the changes he had made to the dispalyed int as well as the string that displayed on the page, which included his name. This new knowledge helped me to understand the possible uses of web servers and the ability for collaboration that they allow. 
