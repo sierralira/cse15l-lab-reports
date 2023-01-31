@@ -1,6 +1,6 @@
 ## Lab Report 2: Servers and Bugs
 ### Part 1: String Server
-The web server, `StringServer`, is meant to take in a string through a request, in the form of `add-message?s=<string>`, and store the incoming requests in a single string, which is displayed on the page. In my writing of the web server, `StringServer`, I implemented the URLHandler interface within Server.java and referenced `NumberServer`, both provided in   the wavelet repository of the Week 2 Lab at [https://github.com/ucsd-cse15l-f22/wavelet](https://github.com/ucsd-cse15l-f22/wavelet). 
+The web server, `StringServer`, is meant to take in a string through a request, in the form of `add-message?s=<string>`, and store the incoming requests in a single string, which is displayed on the page. In my writing of the web server, `StringServer`, I implemented 'URLHandler' and referenced `NumberServer`, both provided in   the wavelet repository of the Week 2 Lab at [https://github.com/ucsd-cse15l-f22/wavelet](https://github.com/ucsd-cse15l-f22/wavelet). 
 
 
 Using these resource, I wrote the following code for `StringServer`:
@@ -116,7 +116,7 @@ static int[] reversed(int[] arr) {
 }
 ```
 
-Following debugging, the `reversed method contained the following code:
+Following debugging, the `reversed` method contained the following code:
 ```
 static int[] reversed(int[] arr) {
    int[] newArray = new int[arr.length];
