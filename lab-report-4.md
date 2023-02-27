@@ -36,7 +36,7 @@ command was now only 3 up in my history, after using the previous command, so I 
 >![Image](lab-report-4-image-6.png)
 
 ### Step 9: Commit  and push the resulting change to your Github account
-What I typed to get this step was `git', `<space>`, `add`, `<space>`, `ListExamples.java`, `<enter>`, `git`, `<space>`, `commit`, 
+What I typed to get this step was `git`, `<space>`, `add`, `<space>`, `ListExamples.java`, `<enter>`, `git`, `<space>`, `commit`, 
  `<space>`, `-m`, `<space>`, `"Updated"`, `<enter>`, `git`, `<space>`, `push`, `<space>`, `o`, `<tab>`, `<space>`, `m`, `<tab>`, 
   `<enter>`. These commands are used to update my repositroy with the changes I made in the terminal. The message `"Updated"` is used to 
   display the update with a message and the `<tab>` used throughout are to autocomplete commands. 
